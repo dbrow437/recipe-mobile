@@ -1,0 +1,66 @@
+﻿[
+  {
+    "Name": "Noodles with basil",
+    "Description": "Authenicate Thai noodle dish with different levels of spice depending on birds' eye chilis amounts. This goes well with a simple stir-fry like bak choi greens",
+    "Image": "./images/thai-basil-noodle.svg",
+    "Source": [
+      {
+        "Title": "Global Vegetarian Cooking",
+        "Author": "Troth Wells",
+        "SourceType": 2
+      }
+    ],
+    "Ingredients": [
+      {
+        "Quantity": "1/2 pound",
+        "Name": "flat rice noodles"
+      },
+      {
+        "Quantity": "3 tablespoons",
+        "Name": "sweet thai basil"
+      },
+      {
+        "Quantity": "1-4",
+        "Name": "birds' eye chilis, halved and de-seeded"
+      },
+      {
+        "Quantity": "1 teaspoon",
+        "Name": "sesame oil"
+      },
+      {
+        "Quantity": "1 teaspoon",
+        "Name": "concentrated yellow bean sauce"
+      },
+      {
+        "Quantity": "1-2 tablespoons",
+        "Name": "soy sauce"
+      },
+      {
+        "Quantity": "1/2 teaspoon",
+        "Name": "sugar"
+      },
+      {
+        "Quantity": "splash",
+        "Name": "oil"
+      }
+    ],
+    "Instructions": [
+      {
+        "Step": 1,
+        "Instruction": "Heat oil in a wok and fry the chilis for half a minute; this make them less fiery"
+      },
+      {
+        "Step": 2,
+        "Instruction": "Add the noodles, throughly drained if they were placed in hot water, and fry for another minute or so. Add the sesame oil and 2 tablespoons of the basil"
+      },
+      {
+        "Step": 3,
+        "Instruction": "Combine well, add the yellow bean sauce and soy mixture and stir fry for about 1 minute, until it looks done."
+      },
+      {
+        "Step": 4,
+        "Instruction": "Heat a little more oil in the wok and fry the remaining basil which will go crispy in seconds. Sprinkle this over the top of the noodles."
+      }
+    ]
+  }
+]

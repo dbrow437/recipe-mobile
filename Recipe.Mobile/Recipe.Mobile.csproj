@@ -50,12 +50,22 @@
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <None Remove="Model\" />
+	  <None Remove="CommunityToolkit.Mvvm" />
+	  <None Remove="Resources\Raw\recipedata.json" />
+	  <None Remove="Resources\Images\thai-basil-noodle.svg" />
+	  <None Remove="DataTypes\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="Model\" />
+	  <Folder Include="DataTypes\" />
+	</ItemGroup>
+	<ItemGroup>
+	  <BundleResource Include="Resources\Raw\recipedata.json" />
+	  <BundleResource Include="Resources\Images\thai-basil-noodle.svg" />
 	</ItemGroup>
 </Project>
