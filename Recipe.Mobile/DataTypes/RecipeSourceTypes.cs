@@ -4,6 +4,7 @@
 	{
 		Self,
 		Website,
+		Book,
 		FamilyRecipe
 	}
 }

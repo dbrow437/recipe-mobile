@@ -59,13 +59,22 @@
 	  <None Remove="Resources\Raw\recipedata.json" />
 	  <None Remove="Resources\Images\thai-basil-noodle.svg" />
 	  <None Remove="DataTypes\" />
+	  <None Remove="View\" />
+	  <None Remove="Resources\Images\puerto_rican_chicken_and_rice.svg" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="Model\" />
 	  <Folder Include="DataTypes\" />
+	  <Folder Include="View\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <BundleResource Include="Resources\Raw\recipedata.json" />
-	  <BundleResource Include="Resources\Images\thai-basil-noodle.svg" />
+	  <BundleResource Include="Resources\Images\thai_basil_noodle.svg" />
+	  <BundleResource Include="Resources\Images\puerto_rican_chicken_and_rice.svg" />
+	</ItemGroup>
+	<ItemGroup>
+	  <MauiXaml Condition=" '$(EnableDefaultXamlItems)' == 'true' " Update="View\MainPage.xaml">
+	    <SubType>Designer</SubType>
+	  </MauiXaml>
 	</ItemGroup>
 </Project>
