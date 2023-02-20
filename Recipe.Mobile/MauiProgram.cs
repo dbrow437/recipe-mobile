@@ -1,4 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
+using Recipe.Mobile.Services;
+using Recipe.Mobile.ViewModels;
+using Recipe.Mobile.Views;
 
 namespace Recipe.Mobile;
 
@@ -9,6 +12,9 @@ public static class MauiProgram
 		var builder = MauiApp.CreateBuilder();
 		builder
 			.UseMauiApp<App>()
+			.RegisterServices()
+			.RegisterViewModels()
+			.RegisterViews()
 			.ConfigureFonts(fonts =>
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -21,5 +27,26 @@ public static class MauiProgram
 
 		return builder.Build();
 	}
+
+	public static MauiAppBuilder RegisterServices(this MauiAppBuilder mauiAppBuilder)
+	{
+		mauiAppBuilder.Services.AddSingleton<UserService>();
+
+		return mauiAppBuilder;
+	}
+
+    public static MauiAppBuilder RegisterViewModels(this MauiAppBuilder mauiAppBuilder)
+    {
+        mauiAppBuilder.Services.AddSingleton<UserViewModel>();
+
+        return mauiAppBuilder;
+    }
+
+    public static MauiAppBuilder RegisterViews(this MauiAppBuilder mauiAppBuilder)
+    {
+        mauiAppBuilder.Services.AddSingleton<MainPage>();
+
+        return mauiAppBuilder;
+    }
 }
 

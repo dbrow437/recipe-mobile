@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Recipe.Mobile.Views.MainPage"
+             xmlns:model="clr-namespace:Recipe.Mobile.Models"
+             xmlns:viewModel="clr-namespace:Recipe.Mobile.ViewModels"
+             x:DataType="viewModel:UserViewModel">
+    <ListView>
+        <ListView.ItemTemplate>
+            <DataTemplate x:DataType="model:User">
+                <Grid ColumnDefinitions="80,*">
+                    <StackLayout Grid.Column="1" Margin="16,4,4,4">
+                        <Label
+                            FontAttributes="Bold"
+                            FontSize="Medium"
+                            Text="{Binding Username}" />
+                        <Label FontSize="Small" Text="{Binding Id}" />
+                    </StackLayout>
+                </Grid>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>
+
