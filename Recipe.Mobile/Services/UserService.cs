@@ -9,7 +9,8 @@ namespace Recipe.Mobile.Services
 	public class UserService
 	{
         HttpClient _httpClient;
-        List<User> users = new();
+
+        public List<User> Users { get; private set; }
 
         public UserService()
         {
@@ -18,17 +19,22 @@ namespace Recipe.Mobile.Services
 
         public async Task<List<User>> GetUsers()
         {
-            if (users.Count > 0)
-                return users;
-
-            HttpResponseMessage response = await _httpClient.GetAsync("https://localhost:5001/api/users");
-
-            if (response.IsSuccessStatusCode)
+            Users = new();
+            try
             {
-                users = await response.Content.ReadFromJsonAsync<List<User>>();
+                HttpResponseMessage response = await _httpClient.GetAsync("https://localhost:5001/api/users");
+
+                if (response.IsSuccessStatusCode)
+                {
+                    Users = await response.Content.ReadFromJsonAsync<List<User>>();
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(@"\tError {0}", ex.Message);
             }
 
-            return users;
+            return Users;
         }
     }
 }

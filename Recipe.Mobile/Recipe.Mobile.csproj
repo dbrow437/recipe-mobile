@@ -51,6 +51,7 @@
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -61,10 +62,13 @@
 	  <None Remove="Resources\Images\puerto_rican_chicken_and_rice.svg" />
 	  <None Remove="Resources\Images\burger_and_fries.svg" />
 	  <None Remove="Services\" />
+	  <None Remove="Interfaces\" />
+	  <None Remove="Newtonsoft.Json" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="DataTypes\" />
 	  <Folder Include="Services\" />
+	  <Folder Include="Interfaces\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <BundleResource Include="Resources\Raw\recipedata.json" />

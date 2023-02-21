@@ -5,20 +5,22 @@
              xmlns:model="clr-namespace:Recipe.Mobile.Models"
              xmlns:viewModel="clr-namespace:Recipe.Mobile.ViewModels"
              x:DataType="viewModel:UserViewModel">
-    <ListView>
-        <ListView.ItemTemplate>
-            <DataTemplate x:DataType="model:User">
-                <Grid ColumnDefinitions="80,*">
-                    <StackLayout Grid.Column="1" Margin="16,4,4,4">
-                        <Label
-                            FontAttributes="Bold"
-                            FontSize="Medium"
-                            Text="{Binding Username}" />
-                        <Label FontSize="Small" Text="{Binding Id}" />
-                    </StackLayout>
-                </Grid>
-            </DataTemplate>
-        </ListView.ItemTemplate>
+    <StackLayout Margin="20,35,20,20">
+        <ListView>
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="model:User">
+                    <Grid ColumnDefinitions="80,*">
+                        <StackLayout Grid.Column="1" Margin="16,4,4,4">
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="Medium"
+                                Text="{Binding Username}" />
+                            <Label FontSize="Small" Text="{Binding Id}" />
+                        </StackLayout>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
     </ListView>
+    </StackLayout>
 </ContentPage>
 

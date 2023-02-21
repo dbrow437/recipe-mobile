@@ -6,14 +6,15 @@ namespace Recipe.Mobile.ViewModels
 {
 	public partial class UserViewModel : ObservableObject
 	{
-		//[ObservableProperty]
-		//private ObservableCollection<User> _users;
+		[ObservableProperty]
+		private ObservableCollection<User> _users;
 		private UserService _userService;
 
 		public UserViewModel(UserService userService)
 		{
 			_userService = userService;
-			//_users = new ObservableCollection<User>(_userService.GetUsers());
+			_users = new();
+			GetUsers();
 		}
 
 		async Task<List<User>> GetUsers()
@@ -22,7 +23,7 @@ namespace Recipe.Mobile.ViewModels
 			try
 			{
 				users = await _userService.GetUsers();
-            }
+			}
 			catch (Exception ex)
 			{
 				Debug.WriteLine($"Unable to get users: {ex:Message}");

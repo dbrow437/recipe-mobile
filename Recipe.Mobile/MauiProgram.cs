@@ -28,7 +28,7 @@ public static class MauiProgram
 		return builder.Build();
 	}
 
-	public static MauiAppBuilder RegisterServices(this MauiAppBuilder mauiAppBuilder)
+    public static MauiAppBuilder RegisterServices(this MauiAppBuilder mauiAppBuilder)
 	{
 		mauiAppBuilder.Services.AddSingleton<UserService>();
 
