@@ -1,17 +1,35 @@
 ﻿using System;
-using Recipe.Mobile.Model;
+using Recipe.Mobile.Interfaces;
 
 namespace Recipe.Mobile.Services
 {
-	public class RecipeService
-	{
-		//TODO: add recipe service
-		//List<RecipeList> recipeList = new();
+    //TODO: consume web api
+    public class RecipeService : IRecipeService
+    {
+        public Models.Recipe CreateRecipe()
+        {
+            throw new NotImplementedException();
+        }
 
-		//public async Task<List<RecipeList>> GetRecipes()
-		//{
-		//	return recipeList;
-		//}
-	}
+        public Models.Recipe DeleteRecipe()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Models.Recipe GetRecipe()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Models.Recipe> GetRecipes()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Models.Recipe UpdateRecipe()
+        {
+            throw new NotImplementedException();
+        }
+    }
 }
 

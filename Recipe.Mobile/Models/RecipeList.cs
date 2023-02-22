@@ -1,4 +1,4 @@
-﻿namespace Recipe.Mobile.Model
+﻿namespace Recipe.Mobile.Models
 {
 	public class RecipeList
 	{

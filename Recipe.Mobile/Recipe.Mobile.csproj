@@ -33,6 +33,9 @@
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-ios|AnyCPU'">
 	  <CreatePackage>false</CreatePackage>
 	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-ios|AnyCPU'">
+	  <CreatePackage>false</CreatePackage>
+	</PropertyGroup>
 	<ItemGroup>
 		<!-- App Icon -->
 		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
@@ -52,6 +55,7 @@
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+		<PackageReference Include="DeviceInfo" Version="1.0.1" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -64,16 +68,29 @@
 	  <None Remove="Services\" />
 	  <None Remove="Interfaces\" />
 	  <None Remove="Newtonsoft.Json" />
+	  <None Remove="DeviceInfo" />
+	  <None Remove="ViewModels\" />
+	  <None Remove="Views\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="DataTypes\" />
 	  <Folder Include="Services\" />
 	  <Folder Include="Interfaces\" />
+	  <Folder Include="ViewModels\" />
+	  <Folder Include="Views\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <BundleResource Include="Resources\Raw\recipedata.json" />
 	  <BundleResource Include="Resources\Images\thai_basil_noodle.svg" />
 	  <BundleResource Include="Resources\Images\puerto_rican_chicken_and_rice.svg" />
 	  <BundleResource Include="Resources\Images\burger_and_fries.svg" />
+	</ItemGroup>
+	<ItemGroup>
+	  <MauiXaml Update="Views\RecipePage.xaml">
+	    <SubType></SubType>
+	  </MauiXaml>
+	  <MauiXaml Update="App.xaml">
+	    <SubType></SubType>
+	  </MauiXaml>
 	</ItemGroup>
 </Project>
