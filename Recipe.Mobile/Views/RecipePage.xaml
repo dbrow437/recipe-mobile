@@ -2,41 +2,17 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:model="clr-namespace:Recipe.Mobile.Models"
+             xmlns:viewModels="clr-namespace:Recipe.Mobile.ViewModels"
+             x:DataType="viewModels:RecipesViewModel"
              x:Class="Recipe.Mobile.Views.RecipePage"
              Title="Recipe Page">
-
-    <CollectionView>
-        <CollectionView.ItemsSource>
-            <x:Array Type="{x:Type model:Recipe}">
-                <model:Recipe
-                    Name= "Noodles with basil"
-                    Description= "Authenicate Thai noodle dish with different levels of spice depending on birds' eye chilis amounts. This goes well with a simple stir-fry like bak choi greens"
-                    Image="thai_basil_noodle.png" />
-                 <model:Recipe
-                    Name= "Puerto Rican Chicken and Rice"
-                    Description= " Arroz con pollo is made in one pan. This comforting dish is easy to make and the pefect nourishing weekenight meal."
-                    Image="puerto_rican_chicken_and_rice.png" />
-            </x:Array>
-        </CollectionView.ItemsSource>
-        <CollectionView.ItemTemplate>
-            <DataTemplate x:DataType="model:Recipe">
-                <VerticalStackLayout Padding="10">
-                    <Image
-                        Aspect="AspectFill"
-                        HeightRequest="100"
-                        Source="{Binding Image}"
-                        WidthRequest="100" />
-                    <Label VerticalOptions="Center">
-                        <Label.Text>
-                            <MultiBinding StringFormat="{}{0} | {1}">
-                                <Binding Path="Name" />
-                                <Binding Path="Description" />
-                                <Binding Path="Image" />
-                            </MultiBinding>
-                        </Label.Text>
-                    </Label>
-                </VerticalStackLayout>
-            </DataTemplate>
-        </CollectionView.ItemTemplate>
+    <Grid>
+        <Button
+            Text="GET RECIPES"
+            Clicked="Button_Clicked"
+            HeightRequest="30" />
+        <CollectionView ItemsSource="{Binding Recipes}">
     </CollectionView>
+    </Grid>
+  
 </ContentPage>

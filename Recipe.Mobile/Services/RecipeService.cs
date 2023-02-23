@@ -1,35 +1,41 @@
 ﻿using System;
+using Newtonsoft.Json;
 using Recipe.Mobile.Interfaces;
+using Recipe.Mobile.Models;
 
 namespace Recipe.Mobile.Services
 {
     //TODO: consume web api
     public class RecipeService : IRecipeService
     {
-        public Models.Recipe CreateRecipe()
+        public RecipeDetail CreateRecipe()
         {
             throw new NotImplementedException();
         }
 
-        public Models.Recipe DeleteRecipe()
+        public RecipeDetail DeleteRecipe()
         {
             throw new NotImplementedException();
         }
 
-        public Models.Recipe GetRecipe()
+        public RecipeDetail GetRecipe()
         {
             throw new NotImplementedException();
         }
 
-        public List<Models.Recipe> GetRecipes()
+        public async Task<List<RecipeDetail>> GetRecipes()
         {
-            throw new NotImplementedException();
+            var recipeData = await FileSystem.OpenAppPackageFileAsync("recipedata.json");
+            var reader = new StreamReader(recipeData);
+            string readToEnd = reader.ReadToEnd();
+            var recipeDataList = JsonConvert.DeserializeObject<List<RecipeDetail>>(readToEnd);
+
+            return recipeDataList;  
         }
 
-        public Models.Recipe UpdateRecipe()
+        public RecipeDetail UpdateRecipe()
         {
             throw new NotImplementedException();
         }
     }
 }
-

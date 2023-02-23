@@ -1,12 +1,14 @@
-﻿namespace Recipe.Mobile.Interfaces
+﻿using Recipe.Mobile.Models;
+
+namespace Recipe.Mobile.Interfaces
 {
 	public interface IRecipeService
 	{
-		List<Models.Recipe> GetRecipes();
-		Models.Recipe GetRecipe();
-		Models.Recipe CreateRecipe();
-		Models.Recipe UpdateRecipe();
-		Models.Recipe DeleteRecipe();
+		Task<List<RecipeDetail>> GetRecipes();
+		RecipeDetail GetRecipe();
+        RecipeDetail CreateRecipe();
+        RecipeDetail UpdateRecipe();
+        RecipeDetail DeleteRecipe();
     }
 }
 
