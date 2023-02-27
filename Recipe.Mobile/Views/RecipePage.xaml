@@ -6,13 +6,42 @@
              x:DataType="viewModels:RecipesViewModel"
              x:Class="Recipe.Mobile.Views.RecipePage"
              Title="Recipe Page">
-    <Grid>
-        <Button
-            Text="GET RECIPES"
-            Clicked="Button_Clicked"
-            HeightRequest="30" />
-        <CollectionView ItemsSource="{Binding Recipes}">
-    </CollectionView>
+
+    <Grid
+        ColumnDefinitions="*,*"
+        ColumnSpacing="5"
+        RowDefinitions="*,Auto"
+        RowSpacing="0">
+        <CollectionView ItemsSource="{Binding Recipes}"
+                        SelectionMode="None"
+                        Grid.ColumnSpan="2">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:RecipeDetail">
+                    <Grid Padding="10">
+                        <Frame HeightRequest="125" Style="{StaticResource CardView}">
+                            <Grid Padding="0" ColumnDefinitions="125, *">
+                                <Image Aspect="AspectFill" Source="{Binding Image}"
+                                       WidthRequest="125"
+                                       HeightRequest="125" />
+                                <VerticalStackLayout
+                                    Grid.Column="1"
+                                    VerticalOptions="Center"
+                                    Padding="10">
+                                    <Label Style="{StaticResource LargeLabel}" Text="{Binding Name}" />
+                                    <Label Style="{StaticResource MediumLabel}" Text="{Binding Description}" />
+                                </VerticalStackLayout>
+                            </Grid>
+                        </Frame>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Button Text="Get Recipes"
+                Command="{Binding GetRecipesCommand}"
+                Grid.Row="1"
+                Grid.Column="0"
+                Style="{StaticResource ButtonOutline}"
+                Margin="8" />
     </Grid>
-  
 </ContentPage>

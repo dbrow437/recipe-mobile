@@ -2,12 +2,15 @@
 using Newtonsoft.Json;
 using Recipe.Mobile.Interfaces;
 using Recipe.Mobile.Models;
+using JsonSerializer = System.Text.Json.JsonSerializer;
 
 namespace Recipe.Mobile.Services
 {
     //TODO: consume web api
     public class RecipeService : IRecipeService
     {
+        List<RecipeDetail> recipeList = new();
+
         public RecipeDetail CreateRecipe()
         {
             throw new NotImplementedException();
@@ -25,12 +28,16 @@ namespace Recipe.Mobile.Services
 
         public async Task<List<RecipeDetail>> GetRecipes()
         {
-            var recipeData = await FileSystem.OpenAppPackageFileAsync("recipedata.json");
-            var reader = new StreamReader(recipeData);
-            string readToEnd = reader.ReadToEnd();
-            var recipeDataList = JsonConvert.DeserializeObject<List<RecipeDetail>>(readToEnd);
+            if (recipeList?.Count > 0)
+                return recipeList;
 
-            return recipeDataList;  
+            using var stream = await FileSystem.OpenAppPackageFileAsync("recipedata.json");
+            using var reader = new StreamReader(stream);
+            var contents = await reader.ReadToEndAsync();
+            recipeList = JsonSerializer.Deserialize<List<RecipeDetail>>(contents);
+
+            return recipeList;
+
         }
 
         public RecipeDetail UpdateRecipe()

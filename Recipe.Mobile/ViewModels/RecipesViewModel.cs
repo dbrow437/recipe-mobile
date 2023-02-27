@@ -4,20 +4,44 @@ using Recipe.Mobile.Interfaces;
 
 namespace Recipe.Mobile.ViewModels
 {
-	public partial class RecipesViewModel : ObservableObject
+	public partial class RecipesViewModel : BaseViewModel
 	{
-		[ObservableProperty]
-		private ObservableCollection<RecipeDetail> _recipes;
-		private IRecipeService _recipeService;
+		public ObservableCollection<RecipeDetail> Recipes { get;  } = new();
+        public Command GetRecipesCommand { get; }
+        private IRecipeService _recipeService;
 
 		public RecipesViewModel(IRecipeService recipeService)
 		{
 			_recipeService = recipeService;
-		}
+			GetRecipesCommand = new Command(async () => await GetAllRecipes());
 
-		public async void GetAllRecipes()
+        }
+
+		public async Task GetAllRecipes()
 		{
-            Recipes = new ObservableCollection<RecipeDetail>(await _recipeService.GetRecipes());
+            try
+            {
+                if (IsBusy)
+                    return;
+
+                IsBusy = true;
+                var recipes = await _recipeService.GetRecipes();
+
+                if (Recipes.Count != 0)
+                    Recipes.Clear();
+
+                foreach (var recipe in recipes)
+                    Recipes.Add(recipe);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Unable to get monkeys: {ex.Message}");
+                await Shell.Current.DisplayAlert("Error!", ex.Message, "OK");
+            }
+            finally
+            {
+                IsBusy = false;
+            }
         }
 	}
 }

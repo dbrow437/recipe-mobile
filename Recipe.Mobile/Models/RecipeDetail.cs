@@ -8,9 +8,9 @@ namespace Recipe.Mobile.Models
         public string Name { get; set; }
         public string Description { get; set; }
         public string Image { get; set; }
-        public RecipeSource Source { get; set; }
-        public Ingredient Ingredients { get; set; }
-        public Instructions Instructions { get; set; }
+        //public RecipeSource RecipeSource { get; set; }
+        //public Ingredient Ingredients { get; set; }
+        //public Instructions Instructions { get; set; }
     }
 }
 

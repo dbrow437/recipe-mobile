@@ -64,13 +64,14 @@
 	  <None Remove="Resources\Images\thai-basil-noodle.svg" />
 	  <None Remove="DataTypes\" />
 	  <None Remove="Resources\Images\puerto_rican_chicken_and_rice.svg" />
-	  <None Remove="Resources\Images\burger_and_fries.svg" />
 	  <None Remove="Services\" />
 	  <None Remove="Interfaces\" />
 	  <None Remove="Newtonsoft.Json" />
 	  <None Remove="DeviceInfo" />
 	  <None Remove="ViewModels\" />
 	  <None Remove="Views\" />
+	  <None Remove="Resources\Images\burger_and_fries.jpg" />
+	  <None Remove="Resources\Images\burger.svg" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="DataTypes\" />
@@ -83,7 +84,7 @@
 	  <BundleResource Include="Resources\Raw\recipedata.json" />
 	  <BundleResource Include="Resources\Images\thai_basil_noodle.svg" />
 	  <BundleResource Include="Resources\Images\puerto_rican_chicken_and_rice.svg" />
-	  <BundleResource Include="Resources\Images\burger_and_fries.svg" />
+	  <BundleResource Include="Resources\Images\burger.svg" />
 	</ItemGroup>
 	<ItemGroup>
 	  <MauiXaml Update="Views\RecipePage.xaml">
